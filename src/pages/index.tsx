@@ -2,16 +2,15 @@ import Head from 'next/head';
 import Layout from '@/components/Layout';
 import blogs from '@/constants/blogs';
 import Link from 'next/link';
-import previewImage from '../images/preview-image.png';
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>CMSC Blogs</title>
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="CMSC Blogs"></meta>
-        <meta property="og:image" content={previewImage.src}></meta>
+        <meta property="og:image" content="https://i.ibb.co/fpgRHWG/preview-image.png"></meta>
       </Head>
       <Layout>
         <div className="flex flex-col items-center py-10">
