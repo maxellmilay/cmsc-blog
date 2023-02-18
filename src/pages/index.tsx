@@ -39,7 +39,9 @@ export default function Home() {
             />
           </div>
           <div className="flex wrap py-16 justify-around">
-            <BlogPreview />
+            {blogs.map((blog) => {
+              return <BlogPreview key={blog.id} id={blog.id} />;
+            })}
           </div>
         </div>
       </Layout>
