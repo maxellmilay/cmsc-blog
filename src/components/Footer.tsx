@@ -8,13 +8,17 @@ const openSansFont = openSans.variable;
 
 export default function Footer() {
   return (
-    <div className="flex w-screen custom-justify-between bg-blog-primary py-14 px-10">
+    <div className="flex flex-col sm:flex-row w-screen items-center sm:items-start footer-subscription-call bg-blog-primary py-14 px-10">
       <div className={`flex flex-col font-open ${openSansFont} text-white`}>
-        <p className="text-xl font-bold">CMSC Blogs</p>
-        <p className="font-bold text-xs mt-2 text-blog-secondary">Blogs</p>
-        <p className="font-bold text-xs mt-2 text-blog-secondary">About Us</p>
+        <p className="text-xl font-bold text-center sm:text-start">CMSC Blogs</p>
+        <p className="font-bold text-xs mt-2 text-blog-secondary text-center sm:text-start">
+          Blogs
+        </p>
+        <p className="font-bold text-xs mt-2 text-blog-secondary text-center sm:text-start">
+          About Us
+        </p>
       </div>
-      <div className="flex flex-col font-product">
+      <div className="flex flex-col font-product mt-7 sm:mt-0">
         <SubscribeCall
           emailColor="bg-blog-gray-1"
           emailTextColor="text-white"
@@ -22,7 +26,7 @@ export default function Footer() {
           subscribeColor="bg-white"
           borderColor="border-blog-gray-1"
         />
-        <p className="text-blog-secondary text-[0.6rem] text-right mt-5">
+        <p className="text-blog-secondary text-[0.6rem] text-center sm:text-right mt-5">
           © 2023 CMSC Blogs. All rights reserved.
         </p>
       </div>

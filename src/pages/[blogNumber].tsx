@@ -26,16 +26,18 @@ export default function SingleBlog() {
         <title>{currentBlog?.title}</title>
       </Head>
       <Layout>
-        <div className="flex flex-col w-[65vw] pt-10 pb-16">
+        <div className="flex flex-col w-[85vw] sm:w-[70vw] lg:w-[65vw] pt-10 pb-16">
           <div className="flex text-blog-secondary text-xs font-product items-center">
             <p>{currentBlog?.date}</p>
             <div className="w-1 h-1 rounded-[50%] bg-blog-red ml-2" />
             <p className="ml-2">Blog</p>
           </div>
-          <h1 className={`${openSansFont} font-sans text-blog-primary font-bold text-6xl mt-3`}>
+          <h1
+            className={`${openSansFont} font-sans text-blog-primary font-bold text-4xl sm:text-6xl mt-3`}
+          >
             {currentBlog?.title}
           </h1>
-          <div className="w-full relative h-[35rem] mt-7">
+          <div className="w-full relative h-56 sm:h-[35rem] mt-7">
             {currentBlog !== undefined && (
               <Image src={currentBlog.picURL} fill className="object-cover" alt="Blog Image" />
             )}

@@ -18,8 +18,8 @@ export default function ContributorCard(props: PropsInterface) {
   const { contributor } = props;
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="relative w-72 h-72">
+    <div className="flex flex-col items-center mb-5">
+      <div className="relative w-60 lg:w-72 h-60 lg:h-72">
         <Image
           src={contributor.imageURL}
           alt="Contributor"
@@ -27,8 +27,10 @@ export default function ContributorCard(props: PropsInterface) {
           className="object-cover rounded-[50%]"
         />
       </div>
-      <p className={`${openSansFont} font-sans text-2xl font-bold mt-3`}>{contributor.name}</p>
-      <p className="font-product font-light mt-3 text-sm">{contributor.role}</p>
+      <p className={`${openSansFont} font-sans text-lg sm:text-2xl font-bold mt-3`}>
+        {contributor.name}
+      </p>
+      <p className="font-product font-light mt-3 text-xs sm:text-sm">{contributor.role}</p>
     </div>
   );
 }

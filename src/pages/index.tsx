@@ -19,7 +19,7 @@ export default function Home() {
         <meta property="og:image" content="https://i.ibb.co/fpgRHWG/preview-image.png"></meta>
       </Head>
       <Layout>
-        <div className="flex flex-col w-full px-16">
+        <div className="flex flex-col w-full px-5 sm:px-16">
           <div className="flex flex-col items-center w-full py-14 h-fit border-b border-blog-gray-3">
             <p
               className={`text-5xl text-blog-primary ${openSansFont} font-open font-bold text-center mb-10`}

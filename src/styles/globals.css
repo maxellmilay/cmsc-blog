@@ -104,6 +104,18 @@ a {
   }
 }
 
+@media only screen and (min-width: 640px) {
+  .footer-subscription-call {
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .footer-subscription-call {
+    justify-content: space-between;
+  }
+}
+
 .custom-justify-between {
   justify-content: space-between;
 }
