@@ -22,7 +22,7 @@ export default function Home() {
       <Layout>
         <div className="flex flex-col w-full px-16">
           <div className="flex flex-col items-center w-full py-14 h-fit border-b border-blog-gray-3">
-            <p className={`text-5xl ${openSansFont} font-open font-bold mb-10`}>
+            <p className={`text-5xl ${openSansFont} font-open font-bold text-center mb-10`}>
               Connecting ideas and people
             </p>
             <SubscribeCall
