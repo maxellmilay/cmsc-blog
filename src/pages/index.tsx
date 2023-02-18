@@ -21,15 +21,10 @@ export default function Home() {
       </Head>
       <Layout>
         <div className="flex flex-col w-full px-16">
-          <div className="flex flex-col w-full py-14 h-fit border-b border-blog-gray-3">
-            <div
-              className={`flex custom-justify-between items-center ${openSansFont} font-open font-bold mb-10`}
-            >
-              <p className="text-5xl">Connecting ideas and people</p>
-              <p className="text-blog-gray-2 max-w-[13rem] text-right">
-                Relevant information related to technology
-              </p>
-            </div>
+          <div className="flex flex-col items-center w-full py-14 h-fit border-b border-blog-gray-3">
+            <p className={`text-5xl ${openSansFont} font-open font-bold mb-10`}>
+              Connecting ideas and people
+            </p>
             <SubscribeCall
               emailColor="bg-white"
               emailTextColor="text-blog-primary"
