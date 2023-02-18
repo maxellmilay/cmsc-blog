@@ -12,7 +12,7 @@ export default function Layout(props: PropsInterface) {
   return (
     <>
       <Header />
-      {children}
+      <div className="flex w-full min-h-screen justify-center">{children}</div>
       <Footer />
     </>
   );

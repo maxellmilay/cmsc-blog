@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-open-sans)', ...fontFamily.sans],
+        open: ['var(--font-open-sans)', ...fontFamily.sans],
         product: ['Product Sans', ...fontFamily.sans],
       },
     },
@@ -17,6 +17,8 @@ module.exports = {
         'blog-primary': '#2E2E2E',
         'blog-secondary': '#B5B5B5',
         'blog-gray-1': '#989898',
+        'blog-gray-2': '#7E7E7E',
+        'blog-gray-3': '#C3C3C3',
       },
     },
   },

@@ -4,13 +4,12 @@ import { Open_Sans } from '@next/font/google';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
-
 const openSansFont = openSans.variable;
 
 export default function Header() {
   return (
     <div
-      className={`flex custom-justify-between items-center w-full px-10 pb-5 pt-10 border-b ${openSansFont} font-sans text-blog-primary`}
+      className={`flex custom-justify-between items-center w-full px-20 pb-5 pt-10 border-b ${openSansFont} font-open text-blog-primary`}
     >
       <div className="flex w-1/3 items-end text-sm">
         <Link className="mr-10" href="/">

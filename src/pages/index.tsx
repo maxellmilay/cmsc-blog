@@ -2,6 +2,12 @@ import Head from 'next/head';
 import Layout from '@/components/Layout';
 import blogs from '@/constants/blogs';
 import Link from 'next/link';
+import { Open_Sans } from '@next/font/google';
+import SubscribeCall from '@/components/SubscribeCall';
+
+const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
+
+const openSansFont = openSans.variable;
 
 export default function Home() {
   return (
@@ -13,17 +19,24 @@ export default function Home() {
         <meta property="og:image" content="https://i.ibb.co/fpgRHWG/preview-image.png"></meta>
       </Head>
       <Layout>
-        <div className="flex flex-col items-center py-10">
-          <h1 className="text-5xl mb-10">Blogs</h1>
-          {blogs.map((blog) => {
-            return (
-              <Link key={blog.id} href={`/${blog.id}`} className="border mb-5 px-5 py-2">
-                <div>
-                  <h2>{blog.title}</h2>
-                </div>
-              </Link>
-            );
-          })}
+        <div className="flex flex-col w-full px-16">
+          <div className="flex flex-col w-full py-14 h-fit border-b border-blog-gray-3">
+            <div
+              className={`flex custom-justify-between items-center ${openSansFont} font-open font-bold mb-10`}
+            >
+              <p className="text-5xl">Connecting ideas and people</p>
+              <p className="text-blog-gray-2 max-w-[13rem] text-right">
+                Relevant information related to technology
+              </p>
+            </div>
+            <SubscribeCall
+              emailColor="bg-white"
+              emailTextColor="text-blog-primary"
+              subscribeTextColor="text-white"
+              subscribeColor="bg-blog-primary"
+              borderColor="border-blog-gray-3"
+            />
+          </div>
         </div>
       </Layout>
     </>
