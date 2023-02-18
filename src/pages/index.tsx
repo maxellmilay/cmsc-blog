@@ -4,6 +4,7 @@ import blogs from '@/constants/blogs';
 import Link from 'next/link';
 import { Open_Sans } from '@next/font/google';
 import SubscribeCall from '@/components/SubscribeCall';
+import BlogPreview from '@/components/BlogPreview';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
 
@@ -36,6 +37,9 @@ export default function Home() {
               subscribeColor="bg-blog-primary"
               borderColor="border-blog-gray-3"
             />
+          </div>
+          <div className="flex wrap py-16 justify-around">
+            <BlogPreview />
           </div>
         </div>
       </Layout>
