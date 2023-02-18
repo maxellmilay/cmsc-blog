@@ -9,7 +9,9 @@ export default function Dropdown(props: PropsInterface) {
   const { setLinkClick: handleLinkClick } = props;
 
   return (
-    <div className={`flex flex-col items-center w-full py-5 bg-blog-gray-4 z-10 text-black`}>
+    <div
+      className={`flex flex-col items-center w-full py-5 bg-white z-10 text-blog-primary border-b`}
+    >
       <p className="font-bold " onClick={() => handleLinkClick('/')}>
         Blogs
       </p>
