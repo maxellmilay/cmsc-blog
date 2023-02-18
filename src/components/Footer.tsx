@@ -32,6 +32,7 @@ export default function Footer() {
           subscribeTextColor="text-black"
           subscribeColor="bg-white"
           borderColor="border-blog-gray-1"
+          placeholderColor="placeholder:text-white"
         />
         <p className="text-blog-secondary text-[0.6rem] text-center sm:text-right mt-5">
           © 2023 CMSC Blogs. All rights reserved.

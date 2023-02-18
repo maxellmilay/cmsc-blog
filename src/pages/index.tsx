@@ -32,6 +32,7 @@ export default function Home() {
               subscribeTextColor="text-white"
               subscribeColor="bg-blog-primary"
               borderColor="border-blog-gray-3"
+              placeholderColor="placeholder:text-blog-primary"
             />
           </div>
           <div className="flex wrap py-16 justify-around">

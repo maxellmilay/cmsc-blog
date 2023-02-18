@@ -6,10 +6,18 @@ interface PropsInterface {
   subscribeTextColor: string;
   subscribeColor: string;
   borderColor: string;
+  placeholderColor: string;
 }
 
 export default function SubscribeCall(props: PropsInterface) {
-  const { emailTextColor, emailColor, subscribeTextColor, subscribeColor, borderColor } = props;
+  const {
+    emailTextColor,
+    emailColor,
+    subscribeTextColor,
+    subscribeColor,
+    borderColor,
+    placeholderColor,
+  } = props;
   const [subscriberEmail, setSubscriberEmail] = useState('');
 
   const handleSubscriberInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +29,7 @@ export default function SubscribeCall(props: PropsInterface) {
       <div className={`flex ${emailColor} rounded-[50vh] font-product border ${borderColor}`}>
         <input
           placeholder="Enter Your Email"
-          className={`text-xs ${emailColor} ${emailTextColor} placeholder:${emailTextColor} py-3 ml-5 mr-32 outline-none`}
+          className={`text-xs ${emailColor} ${emailTextColor} ${placeholderColor} py-3 ml-5 mr-32 outline-none`}
           onChange={(e) => handleSubscriberInputChange(e)}
         />
       </div>
