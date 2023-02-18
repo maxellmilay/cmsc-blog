@@ -9,7 +9,7 @@ const openSansFont = openSans.variable;
 export default function Header() {
   return (
     <div
-      className={`flex custom-justify-between items-center w-full px-20 pb-5 pt-10 border-b ${openSansFont} font-open text-blog-primary`}
+      className={`flex custom-justify-between items-center w-full px-20 pb-5 pt-10 border-b ${openSansFont} font-open text-white bg-blog-primary`}
     >
       <div className="flex w-1/3 items-end text-sm">
         <Link className="mr-10" href="/">
@@ -25,8 +25,8 @@ export default function Header() {
         </Link>
       </div>
       <div className="flex w-1/3 justify-end items-end">
-        <div className="flex justify-center items-center bg-blog-primary px-3 py-2">
-          <MagnifyingGlassIcon className="text-white h-3 w-3" />
+        <div className="flex justify-center items-center bg-white px-3 py-2">
+          <MagnifyingGlassIcon className="text-blog-primary h-3 w-3" />
         </div>
       </div>
     </div>

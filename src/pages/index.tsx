@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Layout from '@/components/Layout';
 import blogs from '@/constants/blogs';
-import Link from 'next/link';
 import { Open_Sans } from '@next/font/google';
 import SubscribeCall from '@/components/SubscribeCall';
 import BlogPreview from '@/components/BlogPreview';
@@ -22,8 +21,10 @@ export default function Home() {
       <Layout>
         <div className="flex flex-col w-full px-16">
           <div className="flex flex-col items-center w-full py-14 h-fit border-b border-blog-gray-3">
-            <p className={`text-5xl ${openSansFont} font-open font-bold text-center mb-10`}>
-              Connecting ideas and people
+            <p
+              className={`text-5xl text-blog-primary ${openSansFont} font-open font-bold text-center mb-10`}
+            >
+              Connecting Ideas & People
             </p>
             <SubscribeCall
               emailColor="bg-white"

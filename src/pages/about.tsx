@@ -19,7 +19,7 @@ export default function about() {
           <p className={`font-bold text-6xl ${openSansFont} font-sans text-blog-primary`}>
             Meet The Team
           </p>
-          <div className="flex justify-around w-full mt-14">
+          <div className="flex wrap justify-around w-full mt-14">
             {contributors.map((contributor) => {
               return <ContributorImage key={contributor.id} contributor={contributor} />;
             })}
