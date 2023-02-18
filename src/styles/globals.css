@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './fonts.css';
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -101,5 +103,9 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.custom-justify-between {
+  justify-content: space-between;
 }
 
