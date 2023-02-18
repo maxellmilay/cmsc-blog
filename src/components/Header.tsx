@@ -17,7 +17,7 @@ export default function Header(props: PropsInterface) {
 
   return (
     <div
-      className={`flex relative custom-justify-between items-center w-full h-[15vh] px-5 sm:px-10 md:px-20 border-b ${openSansFont} font-open text-white bg-blog-primary`}
+      className={`flex relative custom-justify-between items-center w-full h-[15vh] px-5 sm:px-10 md:px-20 border-b ${openSansFont} font-open bg-white text-blog-primary`}
     >
       <div className="flex w-1/5 md:w-1/3 items-end text-sm">
         {width > 768 ? (
@@ -39,8 +39,8 @@ export default function Header(props: PropsInterface) {
         </Link>
       </div>
       <div className="flex w-1/5 md:w-1/3 justify-end items-end">
-        <div className="flex justify-center items-center bg-white px-3 py-2">
-          <MagnifyingGlassIcon className="text-blog-primary h-3 w-3" />
+        <div className="flex justify-center items-center bg-blog-primary px-3 py-2">
+          <MagnifyingGlassIcon className="text-white h-3 w-3" />
         </div>
       </div>
     </div>
