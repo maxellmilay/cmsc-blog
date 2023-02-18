@@ -16,7 +16,7 @@ export default function Home() {
         <title>CMSC Blogs</title>
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="CMSC Blogs"></meta>
-        <meta property="og:image" content="https://i.ibb.co/yV0JHzL/cmsc-blog-logo.png"></meta>
+        <meta property="og:image" content="https://i.ibb.co/fkzCChs/preview-image.png"></meta>
       </Head>
       <Layout>
         <div className="flex flex-col w-full px-5 sm:px-16">
