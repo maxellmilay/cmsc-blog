@@ -14,6 +14,7 @@ interface PropsInterface {
     picURL: string;
     description: string;
     previewText: string;
+    date: string;
   };
 }
 
@@ -23,7 +24,13 @@ export default function BlogPreview(props: PropsInterface) {
   return (
     <div className="flex flex-col max-w-lg">
       <div className="w-full relative h-56 sm:h-72">
-        <Image src={blog.picURL} fill className="object-cover" alt="Preview Image"></Image>
+        <Image src={blog.picURL} fill className="object-cover" alt="Preview Image" />
+        <div
+          className={`flex w-full absolute bottom-0 py-4 px-4 custom-justify-between backdrop-blur-[2px] bg-black/50 text-white text-xs ${openSansFont} font-sans`}
+        >
+          <p>{blog.date}</p>
+          <p className="font-bold">Lifestyle</p>
+        </div>
       </div>
       <p
         className={`font-bold ${openSansFont} font-open text-blog-primary text-md sm:text-xl mt-3`}

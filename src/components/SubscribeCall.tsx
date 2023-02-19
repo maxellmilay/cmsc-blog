@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 interface PropsInterface {
   emailTextColor: string;
@@ -18,6 +19,15 @@ export default function SubscribeCall(props: PropsInterface) {
     setSubscriberEmail(e.target.value);
   };
 
+  const handleSubscribeButtonClick = () => {
+    Swal.fire({
+      title: 'Thank You!',
+      text: 'Subscription is still a future feature, stay tuned',
+      icon: 'info',
+      confirmButtonText: 'Back',
+    });
+  };
+
   return (
     <div className="flex relative w-fit">
       <div className={`flex ${emailColor} rounded-[50vh] font-product border ${borderColor}`}>
@@ -31,7 +41,12 @@ export default function SubscribeCall(props: PropsInterface) {
       <div
         className={`flex absolute right-0 justify-center items-center bg-${subscribeColor} h-full rounded-[50vh] py-3 px-7`}
       >
-        <p className={`text-xs font-bold ${subscribeTextColor}`}>Subscribe</p>
+        <button
+          className={`text-xs font-bold ${subscribeTextColor}`}
+          onClick={handleSubscribeButtonClick}
+        >
+          Subscribe
+        </button>
       </div>
     </div>
   );
