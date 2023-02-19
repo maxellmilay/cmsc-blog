@@ -24,7 +24,7 @@ export default function SearchResults() {
   return (
     <>
       <Head>
-        <title>{query || 'Search'}</title>
+        <title>Search Results</title>
       </Head>
       <Layout>
         <div className="flex flex-col w-[90vw] sm:w-[75vw] md:w-[60vw] pt-6">
