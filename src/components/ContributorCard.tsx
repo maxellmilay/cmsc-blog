@@ -1,17 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { Open_Sans } from '@next/font/google';
+import { ContributorInterface } from '@/interface/ContributorInterface';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
 const openSansFont = openSans.variable;
 
 interface PropsInterface {
-  contributor: {
-    id: number;
-    name: string;
-    role: string;
-    imageURL: string;
-  };
+  contributor: ContributorInterface;
 }
 
 export default function ContributorCard(props: PropsInterface) {

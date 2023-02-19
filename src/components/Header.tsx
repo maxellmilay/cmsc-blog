@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Open_Sans } from '@next/font/google';
 import { MagnifyingGlassIcon, Bars3Icon } from '@heroicons/react/24/solid';
 import useWindowSize from '@/hooks/useScreen';
+import { useRouter } from 'next/router';
+import SearchInput from './SearchInput';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
 const openSansFont = openSans.variable;
@@ -14,6 +16,12 @@ interface PropsInterface {
 export default function Header(props: PropsInterface) {
   const { setDropdownClick: handleDropdownClick } = props;
   const { width } = useWindowSize();
+  const [searchQuery, setSearchQuery] = useState('');
+  const router = useRouter();
+
+  const handleSearchQueryInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
 
   return (
     <div
@@ -38,10 +46,13 @@ export default function Header(props: PropsInterface) {
           <p className="text-xl font-extrabold">CMSC Blogs</p>
         </Link>
       </div>
-      <div className="flex w-1/5 md:w-1/3 justify-end items-end">
-        <div className="flex justify-center items-center bg-blog-primary px-3 py-2">
-          <MagnifyingGlassIcon className="text-white h-3 w-3" />
-        </div>
+      <div className="flex justify-end items-end w-1/5 md:w-1/3">
+        {router.pathname !== '/search' && width > 768 && (
+          <SearchInput
+            searchQuery={searchQuery}
+            handleSearchQueryInputChange={handleSearchQueryInputChange}
+          />
+        )}
       </div>
     </div>
   );

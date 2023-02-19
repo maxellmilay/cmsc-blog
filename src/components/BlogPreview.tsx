@@ -3,19 +3,13 @@ import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import { Open_Sans } from '@next/font/google';
 import Link from 'next/link';
+import { BlogInterface } from '@/interface/BlogInterface';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
 const openSansFont = openSans.variable;
 
 interface PropsInterface {
-  blog: {
-    id: number;
-    title: string;
-    picURL: string;
-    description: string;
-    previewText: string;
-    date: string;
-  };
+  blog: BlogInterface;
 }
 
 export default function BlogPreview(props: PropsInterface) {

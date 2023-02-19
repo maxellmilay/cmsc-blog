@@ -33,7 +33,7 @@ export default function SubscribeCall(props: PropsInterface) {
       <div className={`flex ${emailColor} rounded-[50vh] font-product border ${borderColor}`}>
         <input
           placeholder="Enter Your Email"
-          className={`text-xs ${emailColor} ${emailTextColor} py-3 ml-5 mr-32 outline-none ${className}`}
+          className={`text-xs ${emailColor} ${emailTextColor} py-3 ml-5 mr-24 sm:mr-32 outline-none ${className}`}
           onChange={(e) => handleSubscriberInputChange(e)}
           value={subscriberEmail}
         />
