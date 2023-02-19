@@ -22,7 +22,7 @@ export default function Home() {
         <div className="flex flex-col w-full px-5 sm:px-16">
           <div className="flex flex-col items-center w-full py-14 h-fit border-b border-blog-gray-3">
             <p
-              className={`text-5xl text-blog-primary ${openSansFont} font-open font-bold text-center mb-10`}
+              className={`text-3xl sm:text-5xl text-blog-primary ${openSansFont} font-open font-bold text-center mb-10`}
             >
               Connecting Ideas & People
             </p>
@@ -30,9 +30,9 @@ export default function Home() {
               emailColor="bg-white"
               emailTextColor="text-blog-primary"
               subscribeTextColor="text-white"
-              subscribeColor="bg-blog-primary"
+              subscribeColor="blog-primary"
               borderColor="border-blog-gray-3"
-              placeholderColor="placeholder:text-blog-primary"
+              className={`landing-subscribe-input`}
             />
           </div>
           <div className="flex wrap py-16 justify-around">

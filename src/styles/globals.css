@@ -120,3 +120,11 @@ a {
   justify-content: space-between;
 }
 
+input.footer-subscribe-input::-webkit-input-placeholder {
+  color: white;
+}
+
+input.landing-subscribe-input::-webkit-input-placeholder {
+  color: #2e2e2e;
+}
+
