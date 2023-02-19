@@ -32,7 +32,7 @@ export default function BlogPreview(props: PropsInterface) {
         {blog.title}
       </p>
       <p className="font-light font-product text-xs text-blog-gray-2 mt-1">{blog.previewText}</p>
-      <Link href={`/${blog.id}`}>
+      <Link href={`/blogs/${blog.id}`}>
         <div className="flex items-center mt-5 text-blog-primary">
           <p className="font-bold font-product text-xs">Read post</p>
           <ArrowRightIcon className="h-3 w-3 ml-1 text-blog-primary" />

@@ -22,7 +22,7 @@ export default function SubscribeCall(props: PropsInterface) {
   const handleSubscribeButtonClick = () => {
     Swal.fire({
       title: 'Thank You!',
-      text: 'Subscription is still a future feature, stay tuned',
+      text: 'Email subscription is still a future feature, stay tuned',
       icon: 'info',
       confirmButtonText: 'Back',
     });
