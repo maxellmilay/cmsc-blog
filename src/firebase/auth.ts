@@ -25,8 +25,6 @@ export const handleSignInWithGoogle = async (
       setAuthContext(true);
     })
     .catch((error) => {
-      const code = error.code;
-      const message = error.message;
       setUserContext({} as User);
       setAuthContext(false);
     });
