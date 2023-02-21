@@ -4,12 +4,25 @@ import blogs from '@/constants/blogs';
 import { Open_Sans } from '@next/font/google';
 import SubscribeCall from '@/components/SubscribeCall';
 import BlogPreview from '@/components/BlogPreview';
+import { handleLogOut } from '@/firebase/auth';
+import { useRouter } from 'next/router';
+import AppContext from '@/context/AppContext';
+import { useContext } from 'react';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
 
 const openSansFont = openSans.variable;
 
 export default function Home() {
+  const { setAuthContext } = useContext(AppContext);
+  const router = useRouter();
+
+  const handleLogOutClick = () => {
+    handleLogOut();
+    setAuthContext(false);
+    router.push('/login');
+  };
+
   return (
     <>
       <Head>
