@@ -16,7 +16,7 @@ export default function Login() {
     if (isLoggedIn) {
       router.push('/');
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, router]);
 
   return (
     <>
