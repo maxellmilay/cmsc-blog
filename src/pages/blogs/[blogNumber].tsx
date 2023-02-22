@@ -45,7 +45,9 @@ export default function SingleBlog() {
           <p className="font-product text-xs text-blog-secondary mt-1">
             {currentBlog?.imageCaption}
           </p>
-          <p className="font-product text-sm text-justify mt-7">{currentBlog?.description}</p>
+          <p className="font-product text-sm text-justify mt-7 whitespace-pre-wrap">
+            {currentBlog?.description}
+          </p>
           <div className="flex justify-end mt-3">
             <button
               className="text-white font-product text-xs bg-blog-primary py-2 px-5 rounded-[50vh]"

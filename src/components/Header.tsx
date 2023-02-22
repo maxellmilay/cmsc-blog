@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Open_Sans } from '@next/font/google';
-import { MagnifyingGlassIcon, Bars3Icon } from '@heroicons/react/24/solid';
+import { Bars3Icon } from '@heroicons/react/24/solid';
 import useWindowSize from '@/hooks/useScreen';
 import { useRouter } from 'next/router';
 import SearchInput from './SearchInput';
+import ProfilePreview from './ProfilePreview';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
 const openSansFont = openSans.variable;
@@ -47,12 +48,13 @@ export default function Header(props: PropsInterface) {
         </Link>
       </div>
       <div className="flex justify-end items-end w-1/5 md:w-1/3">
-        {router.pathname !== '/search' && width > 768 && (
+        {router.pathname !== '/search' && !router.pathname.includes('/admin') && width > 768 && (
           <SearchInput
             searchQuery={searchQuery}
             handleSearchQueryInputChange={handleSearchQueryInputChange}
           />
         )}
+        {router.pathname.includes('/admin') && <ProfilePreview />}
       </div>
     </div>
   );

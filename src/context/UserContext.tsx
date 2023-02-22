@@ -3,13 +3,11 @@ import { User } from 'firebase/auth';
 import { Dispatch } from 'react';
 import { SetStateAction } from 'react';
 
-interface AppContextInterface {
-  authContext: boolean;
-  setAuthContext: Dispatch<SetStateAction<boolean>>;
+interface UserContextInterface {
   userContext: User;
   setUserContext: Dispatch<SetStateAction<User>>;
 }
 
-const AppContext = createContext({} as AppContextInterface);
+const UserContext = createContext({} as UserContextInterface);
 
-export default AppContext;
+export default UserContext;

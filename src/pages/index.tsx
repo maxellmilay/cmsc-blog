@@ -6,7 +6,7 @@ import SubscribeCall from '@/components/SubscribeCall';
 import BlogPreview from '@/components/BlogPreview';
 import { handleLogOut } from '@/firebase/auth';
 import { useRouter } from 'next/router';
-import AppContext from '@/context/AppContext';
+import AuthContext from '@/context/AuthContext';
 import { useContext } from 'react';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
@@ -14,7 +14,7 @@ const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' })
 const openSansFont = openSans.variable;
 
 export default function Home() {
-  const { setAuthContext } = useContext(AppContext);
+  const { setAuthContext } = useContext(AuthContext);
   const router = useRouter();
 
   const handleLogOutClick = () => {
