@@ -38,16 +38,12 @@ export default function SubscribeCall(props: PropsInterface) {
           value={subscriberEmail}
         />
       </div>
-      <div
+      <button
         className={`flex absolute right-0 justify-center items-center bg-${subscribeColor} h-full rounded-[50vh] py-3 px-7`}
+        onClick={handleSubscribeButtonClick}
       >
-        <button
-          className={`text-xs font-bold ${subscribeTextColor}`}
-          onClick={handleSubscribeButtonClick}
-        >
-          Subscribe
-        </button>
-      </div>
+        <p className={`text-xs font-bold ${subscribeTextColor}`}>Subscribe</p>
+      </button>
     </div>
   );
 }
