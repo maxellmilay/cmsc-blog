@@ -23,7 +23,7 @@ export default function BlogPreview(props: PropsInterface) {
           className={`flex w-full absolute bottom-0 py-4 px-4 custom-justify-between backdrop-blur-[2px] bg-black/50 text-white text-xs ${openSansFont} font-sans`}
         >
           <p>{blog.date}</p>
-          <p className="font-bold">Lifestyle</p>
+          <p className="font-bold">{blog.type}</p>
         </div>
       </div>
       <p

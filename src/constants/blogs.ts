@@ -2,7 +2,8 @@ const blogs = [
   {
     id: 1,
     title: 'First Week of School',
-    date: '17 February 2023',
+    date: '22 February 2023',
+    type: 'Lifestyle',
     picURL: '/images/blogs/first-week.jpg',
     imageCaption:
       'University of the Philippines Cebu Grounds, near the oblation in front of the admin building',

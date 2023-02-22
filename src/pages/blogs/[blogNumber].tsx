@@ -30,7 +30,7 @@ export default function SingleBlog() {
           <div className="flex text-blog-secondary text-xs font-product items-center">
             <p>{currentBlog?.date}</p>
             <div className="w-1 h-1 rounded-[50%] bg-blog-red ml-2" />
-            <p className="ml-2">Blog</p>
+            <p className="ml-2">{currentBlog?.type}</p>
           </div>
           <h1
             className={`${openSansFont} font-sans text-blog-primary font-bold text-4xl sm:text-6xl mt-3`}

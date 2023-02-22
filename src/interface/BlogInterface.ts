@@ -5,4 +5,5 @@ export interface BlogInterface {
   description: string;
   previewText: string;
   date: string;
+  type: string;
 }
