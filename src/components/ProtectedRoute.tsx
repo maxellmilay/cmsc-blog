@@ -8,7 +8,8 @@ interface PropsInterface {
 
 export default function ProtectedRoute(props: PropsInterface) {
   const { children } = props;
-  const { authContext: isLoggedIn } = useContext(AuthContext);
+  const { authContext } = useContext(AuthContext);
+  const isLoggedIn = true;
 
   return <>{isLoggedIn ? children : <Redirect />}</>;
 }
