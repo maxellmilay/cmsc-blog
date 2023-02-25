@@ -9,7 +9,7 @@ interface PropsInterface {
 export default function ProtectedRoute(props: PropsInterface) {
   const { children } = props;
   const { authContext } = useContext(AuthContext);
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   return <>{isLoggedIn ? children : <Redirect />}</>;
 }
