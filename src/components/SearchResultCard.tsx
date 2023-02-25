@@ -10,7 +10,7 @@ const openSansFont = openSans.variable;
 
 interface PropsInterface {
   blog: BlogInterface;
-  setDeleteButtonClick: (blog: BlogInterface) => void;
+  setDeleteButtonClick?: (blog: BlogInterface) => void;
 }
 
 export default function SearchResultCard(props: PropsInterface) {
@@ -41,7 +41,7 @@ export default function SearchResultCard(props: PropsInterface) {
           <p className="flex font-product text-sm mt-2">{blog.previewText}</p>
         </div>
       </div>
-      {router.pathname.includes('/admin') && (
+      {router.pathname.includes('/admin') && handleDeleteButtonClick !== undefined && (
         <div className="flex md:flex-col p-5 h-full justify-center border-blog-gray-3 border-t md:border-t-0 md:border-l">
           <PencilSquareIcon className="w-7 h-7 mr-5 md:mr-0 md:mb-5 cursor-pointer" />
           <TrashIcon

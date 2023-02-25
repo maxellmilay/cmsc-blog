@@ -8,7 +8,7 @@ import DeleteConfirmationModal from '@/components/DeleteConfirmationModal';
 import { BlogInterface } from '@/interface/BlogInterface';
 
 export default function Dashboard() {
-  const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] = useState(true);
+  const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] = useState(false);
   const [currentBlog, setCurrentBlog] = useState({} as BlogInterface);
 
   const handleDeleteButtonClick = (blog: BlogInterface) => {
