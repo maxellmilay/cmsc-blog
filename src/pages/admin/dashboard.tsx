@@ -5,15 +5,18 @@ import ProtectedRoute from '@/components/ProtectedRoute';
 import SearchResultCard from '@/components/SearchResultCard';
 import blogs from '@/constants/blogs';
 import DeleteConfirmationModal from '@/components/DeleteConfirmationModal';
+import { BlogInterface } from '@/interface/BlogInterface';
 
 export default function Dashboard() {
   const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] = useState(true);
+  const [currentBlog, setCurrentBlog] = useState({} as BlogInterface);
 
-  const handleDeleteButtonClick = () => {
+  const handleDeleteButtonClick = (blog: BlogInterface) => {
+    setCurrentBlog(blog);
     setIsDeleteConfirmationModalOpen(true);
   };
 
-  const handleModalDeleteModalBackgroundClick = () => {
+  const handleModalDeleteModalCloseClick = () => {
     setIsDeleteConfirmationModalOpen(false);
   };
 
@@ -45,7 +48,8 @@ export default function Dashboard() {
       </Layout>
       {isDeleteConfirmationModalOpen && (
         <DeleteConfirmationModal
-          setModalDeleteModalBackgroundClick={handleModalDeleteModalBackgroundClick}
+          setModalDeleteModalCloseClick={handleModalDeleteModalCloseClick}
+          currentBlog={currentBlog}
         />
       )}
     </ProtectedRoute>

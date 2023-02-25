@@ -21,6 +21,8 @@ module.exports = {
         'blog-gray-3': '#C3C3C3',
         'blog-gray-4': '#BEBEBE',
         'blog-gray-5': '#939292',
+        'blog-gray-6': '#A8A8A8',
+        'blog-gray-7': '#F6F3F3',
         'blog-red': '#EC4C22',
       },
     },
