@@ -12,7 +12,7 @@ export default function UploadStepTab(props: PropsInterface) {
   const textColor = currentStep === stepNumber ? `text-blog-primary` : `text-blog-gray-6`;
 
   return (
-    <div className="flex items-center pr-3 ">
+    <div className="flex items-center pr-2 ">
       <div
         className={`flex justify-center items-center ${backgroundColor} text-white w-7 h-7 rounded-full mx-4`}
       >

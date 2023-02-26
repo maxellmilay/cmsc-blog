@@ -1,20 +1,28 @@
 import Layout from '@/components/Layout';
 import React from 'react';
 import { useRouter } from 'next/router';
-import blogs from '@/constants/blogs';
+import { fetchSingleBlog } from '@/firebase/db';
 import Head from 'next/head';
 import { Open_Sans } from '@next/font/google';
 import Image from 'next/image';
+import { useQuery } from '@tanstack/react-query';
+import Loader from '@/components/Loader';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
 const openSansFont = openSans.variable;
 
 export default function SingleBlog() {
   const router = useRouter();
-  const { blogNumber } = router.query;
-  const currentBlog = blogs.find((blog) => {
-    return blog.id == Number(blogNumber);
+  const { blogID } = router.query;
+
+  const { data: currentBlog, isLoading } = useQuery({
+    queryKey: ['blog'],
+    queryFn: () => fetchSingleBlog(blogID as string),
   });
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const handleBackOnClick = () => {
     router.back();
@@ -29,7 +37,7 @@ export default function SingleBlog() {
         {currentBlog && (
           <div className="flex flex-col w-[85vw] sm:w-[70vw] lg:w-[65vw] pt-10 pb-16">
             <div className="flex text-blog-secondary text-xs font-product items-center">
-              <p>{currentBlog.date}</p>
+              <p>{`${currentBlog.date.day} ${currentBlog.date.month} ${currentBlog.date.year}`}</p>
               <div className="w-1 h-1 rounded-[50%] bg-blog-red ml-2" />
               <p className="ml-2">{currentBlog.type}</p>
             </div>

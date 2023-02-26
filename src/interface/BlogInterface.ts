@@ -1,8 +1,9 @@
 export interface BlogInterface {
-  id: number;
+  id: string;
   title: string;
   picURL: string;
   description: string;
+  imageCaption: string;
   previewText: string;
   date: {
     year: string;

@@ -1,6 +1,6 @@
 const blogs = [
   {
-    id: 1,
+    id: '1',
     title: 'First Week of School',
     date: {
       year: '2023',

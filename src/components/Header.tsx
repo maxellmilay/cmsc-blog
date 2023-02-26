@@ -6,6 +6,7 @@ import useWindowSize from '@/hooks/useScreen';
 import { useRouter } from 'next/router';
 import SearchInput from './SearchInput';
 import ProfilePreview from './ProfilePreview';
+import { fetchBlogs, fetchSingleBlog } from '@/firebase/db';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
 const openSansFont = openSans.variable;
@@ -46,6 +47,9 @@ export default function Header(props: PropsInterface) {
         <Link href="/">
           <p className="text-xl font-extrabold">CMSC Blogs</p>
         </Link>
+        <button onClick={fetchBlogs} className="ml-5 bg-blog-primary text-white p-3">
+          FETCH
+        </button>
       </div>
       <div className="flex justify-end items-end w-1/5 md:w-1/3">
         {router.pathname !== '/search' && !router.pathname.includes('/admin') && width > 768 && (

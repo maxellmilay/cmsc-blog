@@ -5,10 +5,12 @@ import UserContext from '@/context/UserContext';
 import AuthContext from '@/context/AuthContext';
 import { User } from 'firebase/auth';
 import { handleAuthStateChange } from '@/firebase/auth';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [userContext, setUserContext] = useState({} as User);
   const [authContext, setAuthContext] = useState(false);
+  const queryClient = new QueryClient();
 
   const authContextProviderValue = useMemo(
     () => ({
@@ -32,9 +34,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <AuthContext.Provider value={authContextProviderValue}>
-      <UserContext.Provider value={userContextProviderValue}>
-        <Component {...pageProps} />
-      </UserContext.Provider>
+      <QueryClientProvider client={queryClient}>
+        <UserContext.Provider value={userContextProviderValue}>
+          <Component {...pageProps} />
+        </UserContext.Provider>
+      </QueryClientProvider>
     </AuthContext.Provider>
   );
 }
