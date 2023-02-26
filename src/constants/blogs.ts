@@ -2,7 +2,11 @@ const blogs = [
   {
     id: 1,
     title: 'First Week of School',
-    date: '22 February 2023',
+    date: {
+      year: '2023',
+      month: 'February',
+      day: '22',
+    },
     type: 'Lifestyle',
     picURL: '/images/blogs/first-week.jpg',
     imageCaption:

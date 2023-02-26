@@ -37,7 +37,7 @@ export default function SearchResultCard(props: PropsInterface) {
           <p className={`${openSansFont} font-sans font-bold text-[1.7rem] leading-8 mt-3`}>
             {blog.title}
           </p>
-          <p className="flex font-product text-xs text-blog-secondary">{blog.date}</p>
+          <p className="flex font-product text-xs text-blog-secondary">{`${blog.date} ${blog.date.month} ${blog.date.year}`}</p>
           <p className="flex font-product text-sm mt-2">{blog.previewText}</p>
         </div>
       </div>

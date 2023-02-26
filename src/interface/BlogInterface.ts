@@ -4,6 +4,10 @@ export interface BlogInterface {
   picURL: string;
   description: string;
   previewText: string;
-  date: string;
+  date: {
+    year: string;
+    month: string;
+    day: string;
+  };
   type: string;
 }
