@@ -13,7 +13,6 @@ export default function UploadInputBox(props: PropsInterface) {
   const data = newBlog[objectKey];
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputChange(objectKey, e.target.value);
-    console.log(e.target.value);
   };
 
   return (
@@ -22,7 +21,7 @@ export default function UploadInputBox(props: PropsInterface) {
       <input
         type="text"
         value={typeof data === 'string' ? data : ''}
-        className="outline-none bg-inherit w-full"
+        className="outline-none bg-inherit w-full whitespace-pre-wrap"
         onChange={(e) => handleInputChange(e)}
       />
     </div>

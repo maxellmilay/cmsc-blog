@@ -25,7 +25,7 @@ export default function UploadTextAreaBox(props: PropsInterface) {
         rows={10}
         value={typeof data === 'string' ? data : ''}
         onChange={(e) => handleInputChange(e)}
-        className={`outline-none bg-inherit w-full ${
+        className={`outline-none bg-inherit w-full whitespace-pre-wrap ${
           contentType === 'Blog Content' && 'whitespace-pre-wrap'
         }`}
       />
