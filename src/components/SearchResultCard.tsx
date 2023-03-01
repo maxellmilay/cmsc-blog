@@ -23,7 +23,7 @@ export default function SearchResultCard(props: PropsInterface) {
 
   return (
     <div className="flex flex-col md:flex-row custom-box-shadow mb-10 w-full">
-      <div className={`flex flex-col items-center md:flex-row p-5`}>
+      <div className={`flex flex-col items-center md:flex-row p-5 grow`}>
         <div
           className="flex relative w-full md:w-64 h-48 sm:h-72 md:h-full min-h-[11rem] min-w-[16rem] cursor-pointer"
           onClick={router.pathname.includes('/admin/add') ? () => {} : handleSearchResultCardClick}

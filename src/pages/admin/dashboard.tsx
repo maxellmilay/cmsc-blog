@@ -3,13 +3,25 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import SearchResultCard from '@/components/SearchResultCard';
-import blogs from '@/constants/blogs';
+//import blogs from '@/constants/blogs';
 import DeleteConfirmationModal from '@/components/DeleteConfirmationModal';
 import { BlogInterface } from '@/interface/BlogInterface';
+import { useQuery } from '@tanstack/react-query';
+import { fetchBlogs } from '@/firebase/db';
+import Loader from '@/components/Loader';
 
 export default function Dashboard() {
   const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] = useState(false);
   const [currentBlog, setCurrentBlog] = useState({} as BlogInterface);
+
+  const { data: blogs, isLoading } = useQuery({
+    queryKey: ['blogList'],
+    queryFn: fetchBlogs,
+  });
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const handleDeleteButtonClick = (blog: BlogInterface) => {
     setCurrentBlog(blog);
@@ -35,15 +47,16 @@ export default function Dashboard() {
               ADD BLOG
             </button>
           </div>
-          {blogs.map((blog) => {
-            return (
-              <SearchResultCard
-                key={blog.id}
-                blog={blog}
-                setDeleteButtonClick={handleDeleteButtonClick}
-              />
-            );
-          })}
+          {blogs !== undefined &&
+            blogs.map((blog) => {
+              return (
+                <SearchResultCard
+                  key={blog.id}
+                  blog={blog}
+                  setDeleteButtonClick={handleDeleteButtonClick}
+                />
+              );
+            })}
         </div>
       </Layout>
       {isDeleteConfirmationModalOpen && (
