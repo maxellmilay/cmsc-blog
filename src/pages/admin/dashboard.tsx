@@ -9,10 +9,12 @@ import { BlogInterface } from '@/interface/BlogInterface';
 import { useQuery } from '@tanstack/react-query';
 import { fetchBlogs } from '@/firebase/db';
 import Loader from '@/components/Loader';
+import { useRouter } from 'next/router';
 
 export default function Dashboard() {
   const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] = useState(false);
   const [currentBlog, setCurrentBlog] = useState({} as BlogInterface);
+  const router = useRouter();
 
   const { data: blogs, isLoading } = useQuery({
     queryKey: ['blogList'],
@@ -32,6 +34,10 @@ export default function Dashboard() {
     setIsDeleteConfirmationModalOpen(false);
   };
 
+  const handleAddBlogButtonClick = () => {
+    router.push('/admin/add');
+  };
+
   return (
     <ProtectedRoute>
       <Head>
@@ -39,11 +45,19 @@ export default function Dashboard() {
       </Head>
       <Layout>
         <div className="flex flex-col w-[60vw]">
+          <h1 className="text-center text-3xl font-product font-bold mt-10">Admin Dashboard</h1>
           <div className="flex py-7 custom-justify-between">
-            <button className="bg-blog-primary text-white px-6 py-3 rounded-[50vh] text-sm">
+            <button
+              type="button"
+              className="bg-blog-primary text-white px-6 py-3 rounded-[50vh] text-sm"
+            >
               CHECK REVIEW
             </button>
-            <button className="bg-blog-primary text-white px-6 py-3 rounded-[50vh] text-sm">
+            <button
+              type="button"
+              className="bg-blog-primary text-white px-6 py-3 rounded-[50vh] text-sm"
+              onClick={handleAddBlogButtonClick}
+            >
               ADD BLOG
             </button>
           </div>
