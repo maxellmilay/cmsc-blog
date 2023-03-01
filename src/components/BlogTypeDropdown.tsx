@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
+import { BlogInterface } from '@/interface/BlogInterface';
+
+interface PropsInterface {
+  setInputChange: (key: string, value: string) => void;
+  objectKey: string;
+  newBlog: BlogInterface;
+}
 
 const dropDownItems = ['Lifestyle', 'Technology', 'Personal'];
 
-export default function BlogTypeDropdown() {
-  const [currentType, setCurrentType] = useState('Lifestyle');
+export default function BlogTypeDropdown(props: PropsInterface) {
+  const { setInputChange: handleInputChange, objectKey, newBlog } = props;
+  const [currentType, setCurrentType] = useState(newBlog.type);
   const [isBlogTypeDropdownOpen, setIsBlogTypeDropdownOpen] = useState(false);
 
   const handleDropdownButtonClick = () => {
@@ -15,6 +23,10 @@ export default function BlogTypeDropdown() {
     setCurrentType(item);
     setIsBlogTypeDropdownOpen(false);
   };
+
+  useEffect(() => {
+    handleInputChange(objectKey, currentType);
+  }, [currentType]);
 
   const DropDownContent = (
     <div className="flex flex-col bg-blog-gray-7 absolute top-20 left-0 rounded-md py-5 custom-box-shadow-2">

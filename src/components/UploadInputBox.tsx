@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
+import { BlogInterface } from '@/interface/BlogInterface';
 
 interface PropsInterface {
   type: string;
+  setInputChange: (key: string, value: string) => void;
+  objectKey: string;
+  newBlog: BlogInterface;
 }
 
 export default function UploadInputBox(props: PropsInterface) {
-  const { type } = props;
-  const [data, setData] = useState('');
-
+  const { type, setInputChange, objectKey, newBlog } = props;
+  const data = newBlog[objectKey];
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData(e.target.value);
+    setInputChange(objectKey, e.target.value);
+    console.log(e.target.value);
   };
 
   return (
@@ -17,7 +21,7 @@ export default function UploadInputBox(props: PropsInterface) {
       <p className="text-blog-gray-1 text-xs mb-1">{type}</p>
       <input
         type="text"
-        value={data}
+        value={typeof data === 'string' ? data : ''}
         className="outline-none bg-inherit w-full"
         onChange={(e) => handleInputChange(e)}
       />

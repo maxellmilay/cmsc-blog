@@ -26,13 +26,13 @@ export default function SearchResultCard(props: PropsInterface) {
       <div className={`flex flex-col items-center md:flex-row p-5`}>
         <div
           className="flex relative w-full md:w-64 h-48 sm:h-72 md:h-full min-h-[11rem] min-w-[16rem] cursor-pointer"
-          onClick={handleSearchResultCardClick}
+          onClick={router.pathname.includes('/admin/add') ? () => {} : handleSearchResultCardClick}
         >
           <Image src={blog.picURL} alt="Search Result" fill className="object-cover" />
         </div>
         <div
           className="flex flex-col grow md:ml-5 justify-center cursor-pointer"
-          onClick={handleSearchResultCardClick}
+          onClick={router.pathname.includes('/admin/add') ? () => {} : handleSearchResultCardClick}
         >
           <p className={`${openSansFont} font-sans font-bold text-[1.7rem] leading-8 mt-3`}>
             {blog.title}

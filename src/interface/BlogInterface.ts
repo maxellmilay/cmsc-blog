@@ -1,4 +1,12 @@
 export interface BlogInterface {
+  [objectKey: string]:
+    | string
+    | {
+        year: string;
+        month: string;
+        day: string;
+      };
+
   id: string;
   title: string;
   picURL: string;

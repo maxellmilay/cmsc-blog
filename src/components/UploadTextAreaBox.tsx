@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
+import { BlogInterface } from '@/interface/BlogInterface';
 
 interface PropsInterface {
   type: string;
   contentType?: string;
+  setInputChange: (key: string, value: string) => void;
+  objectKey: string;
+  newBlog: BlogInterface;
 }
 
 export default function UploadTextAreaBox(props: PropsInterface) {
-  const { type, contentType } = props;
-  const [data, setData] = useState('');
+  const { type, contentType, setInputChange, objectKey, newBlog } = props;
+  const data = newBlog[objectKey];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setData(e.target.value);
+    setInputChange(objectKey, e.target.value);
   };
 
   return (
@@ -19,7 +23,7 @@ export default function UploadTextAreaBox(props: PropsInterface) {
       <textarea
         cols={30}
         rows={10}
-        value={data}
+        value={typeof data === 'string' ? data : ''}
         onChange={(e) => handleInputChange(e)}
         className={`outline-none bg-inherit w-full ${
           contentType === 'Blog Content' && 'whitespace-pre-wrap'

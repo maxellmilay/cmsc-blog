@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '@/components/Layout';
 import UploadStepTab from '@/components/UploadStepTab';
 import UploadInputBox from '@/components/UploadInputBox';
@@ -8,10 +8,12 @@ import Head from 'next/head';
 import { BlogInterface } from '@/interface/BlogInterface';
 import UploadTextAreaBox from '@/components/UploadTextAreaBox';
 import BlogTypeDropdown from '@/components/BlogTypeDropdown';
+import AddBlogPreview from '@/components/AddBlogPreview';
+import month from '@/constants/months';
 
 export default function Add() {
   const [currentStep, setCurrentStep] = useState(1);
-  const [newBlog, setNewBlog] = useState({} as BlogInterface);
+  const [newBlog, setNewBlog] = useState({ type: 'Lifestyle' } as BlogInterface);
 
   const handleNextButtonClick = () => {
     setCurrentStep(currentStep + 1);
@@ -22,12 +24,26 @@ export default function Add() {
   };
 
   const handleInputChange = (key: string, value: string) => {
-    setNewBlog({ [key]: value, ...newBlog });
+    setNewBlog({ ...newBlog, [key]: value });
   };
 
   const handleFinishButtonClick = () => {
     console.log(newBlog);
   };
+
+  const handleStepTabButtonClick = (step: number) => {
+    setCurrentStep(step);
+  };
+
+  useEffect(() => {
+    const dateData = new Date();
+    const date = {
+      year: String(dateData.getFullYear()),
+      month: month[dateData.getMonth()],
+      day: String(dateData.getDate()),
+    };
+    setNewBlog({ ...newBlog, date: date });
+  }, []);
 
   return (
     <ProtectedRoute>
@@ -41,21 +57,50 @@ export default function Add() {
               <p className="font-bold">UPLOAD YOUR OWN BLOG</p>
             </div>
             <div className="flex mr-10">
-              <UploadStepTab stepNumber={1} text="Add Preview" currentStep={currentStep} />
-              <UploadStepTab stepNumber={2} text="Add Main Content" currentStep={currentStep} />
-              <UploadStepTab stepNumber={3} text="Finish" currentStep={currentStep} />
+              <UploadStepTab
+                stepNumber={1}
+                text="Add Preview"
+                currentStep={currentStep}
+                setStepTabButtonClick={handleStepTabButtonClick}
+              />
+              <UploadStepTab
+                stepNumber={2}
+                text="Add Main Content"
+                currentStep={currentStep}
+                setStepTabButtonClick={handleStepTabButtonClick}
+              />
+              <UploadStepTab
+                stepNumber={3}
+                text="Finish"
+                currentStep={currentStep}
+                setStepTabButtonClick={handleStepTabButtonClick}
+              />
             </div>
           </div>
           <div className="flex flex-col mx-14 mt-10">
             {currentStep === 1 && (
               <>
-                <InputSection type="Blog Title" objectKey="title" input={UploadInputBox} />
+                <InputSection
+                  type="Blog Title"
+                  objectKey="title"
+                  input={UploadInputBox}
+                  setInputChange={handleInputChange}
+                  newBlog={newBlog}
+                />
                 <InputSection
                   type="Preview Text"
                   objectKey="previewText"
                   input={UploadTextAreaBox}
+                  setInputChange={handleInputChange}
+                  newBlog={newBlog}
                 />
-                <InputSection type="Blog Type" objectKey="type" input={BlogTypeDropdown} />
+                <InputSection
+                  type="Blog Type"
+                  objectKey="type"
+                  input={BlogTypeDropdown}
+                  setInputChange={handleInputChange}
+                  newBlog={newBlog}
+                />
               </>
             )}
             {currentStep === 2 && (
@@ -64,14 +109,26 @@ export default function Add() {
                   type="Blog Content"
                   objectKey="description"
                   input={UploadTextAreaBox}
+                  setInputChange={handleInputChange}
+                  newBlog={newBlog}
                 ></InputSection>
+                <InputSection
+                  type="Blog Image"
+                  objectKey="picURL"
+                  input={UploadInputBox}
+                  setInputChange={handleInputChange}
+                  newBlog={newBlog}
+                />
                 <InputSection
                   type="Image Caption"
                   objectKey="imageCaption"
                   input={UploadTextAreaBox}
+                  setInputChange={handleInputChange}
+                  newBlog={newBlog}
                 ></InputSection>
               </>
             )}
+            {currentStep === 3 && <AddBlogPreview newBlog={newBlog} />}
             <div
               className={`flex ${
                 currentStep == 1 ? 'justify-end' : 'custom-justify-between'
@@ -99,6 +156,7 @@ export default function Add() {
                 <button
                   type="button"
                   className="bg-blog-primary text-white px-10 py-4 rounded-full"
+                  onClick={handleFinishButtonClick}
                 >
                   Finish
                 </button>
