@@ -10,10 +10,14 @@ import UploadTextAreaBox from '@/components/UploadTextAreaBox';
 import BlogTypeDropdown from '@/components/BlogTypeDropdown';
 import AddBlogPreview from '@/components/AddBlogPreview';
 import month from '@/constants/months';
+import { postBlog } from '@/firebase/db';
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/router';
 
 export default function Add() {
   const [currentStep, setCurrentStep] = useState(1);
   const [newBlog, setNewBlog] = useState({ type: 'Lifestyle' } as BlogInterface);
+  const router = useRouter();
 
   const handleNextButtonClick = () => {
     setCurrentStep(currentStep + 1);
@@ -28,7 +32,15 @@ export default function Add() {
   };
 
   const handleFinishButtonClick = () => {
-    console.log(newBlog);
+    postBlog(newBlog);
+    Swal.fire({
+      title: 'Blog Uploaded!',
+      text: 'You will now be redirected to the home page',
+      icon: 'success',
+      confirmButtonText: 'Go to Home',
+    }).then(() => {
+      router.push('/');
+    });
   };
 
   const handleStepTabButtonClick = (step: number) => {

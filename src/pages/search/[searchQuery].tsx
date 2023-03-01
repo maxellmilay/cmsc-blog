@@ -39,7 +39,7 @@ export default function SearchResults() {
       </Head>
       <Layout>
         <div className="flex flex-col w-[90vw] sm:w-[75vw] md:w-[60vw] pt-6">
-          <div className={`flex ${openSansFont} font-sans items-end`}>
+          <div className={`flex ${openSansFont} font-sans items-end mb-10`}>
             <p className="text-blog-secondary mr-1">Search Results:</p>
             <h1 className="text-2xl font-bold">{query}</h1>
           </div>

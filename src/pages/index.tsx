@@ -59,7 +59,7 @@ export default function Home() {
               className={`landing-subscribe-input`}
             />
           </div>
-          <div className="flex wrap py-16 justify-around">
+          <div className="flex flex-wrap pt-16 pb-6 justify-around">
             {blogs !== undefined &&
               blogs.map((blog) => {
                 return <BlogPreview key={blog.id} blog={blog} />;

@@ -18,7 +18,7 @@ export default function BlogPreview(props: PropsInterface) {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col w-[32rem]">
+    <div className="flex flex-col w-[32rem] mb-10">
       <div className="w-full relative h-56 sm:h-72">
         <Image src={blog.picURL} fill className="object-cover" alt="Preview Image" />
         <div
