@@ -16,7 +16,7 @@ export default function MiniBlogInfo(props: PropsInterface) {
       </div>
       <div className="flex flex-col max-w-[10rem] ml-3 justify-center">
         <p className="text-[0.6rem] font-bold">{blog.title}</p>
-        <p className="text-[0.4rem] font-product text-blog-secondary">{blog.date}</p>
+        <p className="text-[0.4rem] font-product text-blog-secondary">{`${blog.date} ${blog.date.month} ${blog.date.year}`}</p>
         <p className="text-[0.4rem]">{blog.previewText}</p>
       </div>
     </div>

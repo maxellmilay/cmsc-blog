@@ -3,6 +3,7 @@ import React from 'react';
 import { Open_Sans } from '@next/font/google';
 import Image from 'next/image';
 import MiniBlogInfo from './MiniBlogInfo';
+import { deleteBlog } from '@/firebase/db';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
 const openSansFont = openSans.variable;
@@ -14,6 +15,11 @@ interface PropsInterface {
 
 export default function DeleteConfirmationModal(props: PropsInterface) {
   const { currentBlog, setModalDeleteModalCloseClick: handleModalDeleteModalCloseClick } = props;
+
+  const handleDeleteBlogClick = () => {
+    deleteBlog(currentBlog.id);
+    handleModalDeleteModalCloseClick();
+  };
 
   return (
     <>
@@ -29,12 +35,17 @@ export default function DeleteConfirmationModal(props: PropsInterface) {
           <MiniBlogInfo blog={currentBlog} />
           <div className="flex custom-justify-between w-full">
             <button
+              type="button"
               className="py-2 px-6 rounded-full bg-blog-primary text-white"
               onClick={handleModalDeleteModalCloseClick}
             >
               Cancel
             </button>
-            <button className="py-2 px-6 rounded-full bg-white text-blog-red border border-blog-red">
+            <button
+              type="button"
+              className="py-2 px-6 rounded-full bg-white text-blog-red border border-blog-red"
+              onClick={handleDeleteBlogClick}
+            >
               Delete
             </button>
           </div>

@@ -23,21 +23,21 @@ export default function SearchResultCard(props: PropsInterface) {
 
   return (
     <div className="flex flex-col md:flex-row custom-box-shadow mb-10 w-full">
-      <div className={`flex flex-col items-center md:flex-row p-5`}>
+      <div className={`flex flex-col items-center md:flex-row p-5 grow`}>
         <div
           className="flex relative w-full md:w-64 h-48 sm:h-72 md:h-full min-h-[11rem] min-w-[16rem] cursor-pointer"
-          onClick={handleSearchResultCardClick}
+          onClick={router.pathname.includes('/admin/add') ? () => {} : handleSearchResultCardClick}
         >
           <Image src={blog.picURL} alt="Search Result" fill className="object-cover" />
         </div>
         <div
           className="flex flex-col grow md:ml-5 justify-center cursor-pointer"
-          onClick={handleSearchResultCardClick}
+          onClick={router.pathname.includes('/admin/add') ? () => {} : handleSearchResultCardClick}
         >
           <p className={`${openSansFont} font-sans font-bold text-[1.7rem] leading-8 mt-3`}>
             {blog.title}
           </p>
-          <p className="flex font-product text-xs text-blog-secondary">{blog.date}</p>
+          <p className="flex font-product text-xs text-blog-secondary">{`${blog.date.day} ${blog.date.month} ${blog.date.year}`}</p>
           <p className="flex font-product text-sm mt-2">{blog.previewText}</p>
         </div>
       </div>

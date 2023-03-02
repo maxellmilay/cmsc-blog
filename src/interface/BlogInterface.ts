@@ -1,9 +1,22 @@
 export interface BlogInterface {
-  id: number;
+  [objectKey: string]:
+    | string
+    | {
+        year: string;
+        month: string;
+        day: string;
+      };
+
+  id: string;
   title: string;
   picURL: string;
   description: string;
+  imageCaption: string;
   previewText: string;
-  date: string;
+  date: {
+    year: string;
+    month: string;
+    day: string;
+  };
   type: string;
 }

@@ -1,4 +1,4 @@
-import app from './index';
+import app from '.';
 import {
   browserSessionPersistence,
   getAuth,
@@ -9,6 +9,7 @@ import {
   signOut,
   User,
 } from 'firebase/auth';
+import { SetStateAction } from 'react';
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -21,7 +22,10 @@ export const handleSignInWithGoogle = async (
   signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
-      setUserContext(user);
+      console.log('auth: ', user.email);
+      if (user.email !== undefined) {
+        setUserContext(user);
+      }
       setAuthContext(true);
     })
     .catch((error) => {
@@ -31,13 +35,16 @@ export const handleSignInWithGoogle = async (
 };
 
 export const handleAuthStateChange = (
-  setAuthContext: React.Dispatch<React.SetStateAction<User>>
+  setUserContext: React.Dispatch<React.SetStateAction<User>>,
+  setAuthContext: React.Dispatch<SetStateAction<boolean>>
 ) => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      setAuthContext(user);
+      setAuthContext(true);
+      setUserContext(user);
     } else {
-      setAuthContext({} as User);
+      setAuthContext(false);
+      setUserContext({} as User);
     }
   });
 };

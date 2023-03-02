@@ -22,7 +22,7 @@ export default function Login() {
   }, [isLoggedIn, router]);
 
   return (
-    <ProtectedRoute>
+    <>
       <Head>
         <title>Admin Login</title>
       </Head>
@@ -32,6 +32,6 @@ export default function Login() {
           SIGN IN WITH GOOGLE
         </button>
       </div>
-    </ProtectedRoute>
+    </>
   );
 }

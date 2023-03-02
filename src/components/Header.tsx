@@ -6,6 +6,7 @@ import useWindowSize from '@/hooks/useScreen';
 import { useRouter } from 'next/router';
 import SearchInput from './SearchInput';
 import ProfilePreview from './ProfilePreview';
+import { fetchBlogs, fetchSingleBlog } from '@/firebase/db';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
 const openSansFont = openSans.variable;

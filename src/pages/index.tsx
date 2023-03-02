@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Layout from '@/components/Layout';
-import blogs from '@/constants/blogs';
 import { Open_Sans } from '@next/font/google';
 import SubscribeCall from '@/components/SubscribeCall';
 import BlogPreview from '@/components/BlogPreview';
@@ -8,6 +7,9 @@ import { handleLogOut } from '@/firebase/auth';
 import { useRouter } from 'next/router';
 import AuthContext from '@/context/AuthContext';
 import { useContext } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { fetchBlogs } from '@/firebase/db';
+import Loader from '@/components/Loader';
 
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' });
 
@@ -16,6 +18,15 @@ const openSansFont = openSans.variable;
 export default function Home() {
   const { setAuthContext } = useContext(AuthContext);
   const router = useRouter();
+
+  const { data: blogs, isLoading } = useQuery({
+    queryKey: ['blogList'],
+    queryFn: fetchBlogs,
+  });
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const handleLogOutClick = () => {
     handleLogOut();
@@ -48,10 +59,11 @@ export default function Home() {
               className={`landing-subscribe-input`}
             />
           </div>
-          <div className="flex wrap py-16 justify-around">
-            {blogs.map((blog) => {
-              return <BlogPreview key={blog.id} blog={blog} />;
-            })}
+          <div className="flex flex-wrap pt-16 pb-6 justify-around">
+            {blogs !== undefined &&
+              blogs.map((blog) => {
+                return <BlogPreview key={blog.id} blog={blog} />;
+              })}
           </div>
         </div>
       </Layout>
