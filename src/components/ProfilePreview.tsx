@@ -14,7 +14,7 @@ export default function ProfilePreview() {
       <p className={`text-blog-primary text-xs ${openSansFont} font-sans font-bold`}>
         {user.displayName}
       </p>
-      <div className="flex h-8 w-8 rounded-[50vh] ml-3">
+      <div className="flex relative h-8 w-8 rounded-full ml-3">
         {user.photoURL !== null && (
           <Image src={user.photoURL} alt="DP" fill className="object-cover" />
         )}
