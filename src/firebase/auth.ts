@@ -40,8 +40,10 @@ export const handleAuthStateChange = (
 ) => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
+      if (user.email !== undefined) {
+        setUserContext(user);
+      }
       setAuthContext(true);
-      setUserContext(user);
     } else {
       setAuthContext(false);
       setUserContext({} as User);
