@@ -32,15 +32,15 @@ export default function Add() {
   };
 
   const handleFinishButtonClick = () => {
-    postBlog(newBlog);
-    Swal.fire({
-      title: 'Blog Uploaded!',
-      text: 'You will now be redirected to the home page',
-      icon: 'success',
-      confirmButtonText: 'Go to Home',
-    }).then(() => {
-      router.push('/');
-    });
+    // postBlog(newBlog);
+    // Swal.fire({
+    //   title: 'Blog Uploaded!',
+    //   text: 'You will now be redirected to the home page',
+    //   icon: 'success',
+    //   confirmButtonText: 'Go to Home',
+    // }).then(() => {
+    //   router.push('/');
+    // });
   };
 
   const handleStepTabButtonClick = (step: number) => {
