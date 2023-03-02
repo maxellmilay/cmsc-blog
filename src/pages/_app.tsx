@@ -29,16 +29,16 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 
   useEffect(() => {
-    handleAuthStateChange(setUserContext);
+    handleAuthStateChange(setUserContext, setAuthContext);
   }, []);
 
   return (
     <AuthContext.Provider value={authContextProviderValue}>
-      <QueryClientProvider client={queryClient}>
-        <UserContext.Provider value={userContextProviderValue}>
+      <UserContext.Provider value={userContextProviderValue}>
+        <QueryClientProvider client={queryClient}>
           <Component {...pageProps} />
-        </UserContext.Provider>
-      </QueryClientProvider>
+        </QueryClientProvider>
+      </UserContext.Provider>
     </AuthContext.Provider>
   );
 }

@@ -27,8 +27,6 @@ export default function SearchResults() {
 
   const filteredBlogs = blogs?.filter((blog) => {
     const name = blog.title.toLowerCase();
-    console.log(name);
-
     return name.includes(query.toLowerCase());
   });
 
