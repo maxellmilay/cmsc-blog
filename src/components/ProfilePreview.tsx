@@ -8,7 +8,6 @@ const openSansFont = openSans.variable;
 
 export default function ProfilePreview() {
   const { userContext: user } = useContext(UserContext);
-  console.log(user.photoURL);
 
   return (
     <div className="flex justify-end items-center">
