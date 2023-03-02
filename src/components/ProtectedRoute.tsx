@@ -2,16 +2,11 @@ import AuthContext from '@/context/AuthContext';
 import UserContext from '@/context/UserContext';
 import React, { ReactNode, useContext, useState } from 'react';
 import Redirect from './Redirect';
+import adminUsers from '@/constants/adminUsers';
 
 interface PropsInterface {
   children?: ReactNode;
 }
-
-const adminUsers = [
-  { name: 'Maxell Milay', email: 'milaymaxell@gmail.com' },
-  { name: 'Jed Edison Donaire', email: 'jed.donaire08@gmail.com' },
-  { name: 'Levi Bacarra', email: 'bacarradanelevi@gmail.com' },
-];
 
 export default function ProtectedRoute(props: PropsInterface) {
   const { children } = props;
