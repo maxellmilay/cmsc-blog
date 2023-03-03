@@ -19,7 +19,6 @@ export default function ProtectedRoute(props: PropsInterface) {
   };
 
   adminUsers.forEach((user) => {
-    console.log('admin: ', isAdmin, '  login: ', isLoggedIn);
     if (user.email == userContext.email && isAdmin === false) {
       updateAdminState();
     }
