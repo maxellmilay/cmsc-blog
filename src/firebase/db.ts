@@ -12,6 +12,7 @@ import {
 } from 'firebase/firestore';
 import app from '.';
 import { BlogInterface } from '@/interface/BlogInterface';
+import { QueryFunctionContext } from '@tanstack/react-query';
 
 const db = getFirestore(app);
 
@@ -49,7 +50,6 @@ export const fetchBlogs = async () => {
 
 export const fetchSingleBlog = async (blogID: string) => {
   const authID = await filterUserID(authEmail);
-
   const blogRef = doc(db, `users/${authID}/blogs/${blogID}`);
   const blogSnap = await getDoc(blogRef);
   if (blogSnap.exists()) {

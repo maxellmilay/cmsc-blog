@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { fetchSingleBlog } from '@/firebase/db';
 import Head from 'next/head';
 import { Open_Sans } from '@next/font/google';
-import Image from 'next/image';
 import { useQuery } from '@tanstack/react-query';
 import Loader from '@/components/Loader';
 import BlogContent from '@/components/BlogContent';
@@ -15,9 +14,8 @@ const openSansFont = openSans.variable;
 export default function SingleBlog() {
   const router = useRouter();
   const { blogID } = router.query;
-
   const { data: currentBlog, isLoading } = useQuery({
-    queryKey: ['blog'],
+    queryKey: ['blogID', blogID],
     queryFn: () => fetchSingleBlog(blogID as string),
   });
 
