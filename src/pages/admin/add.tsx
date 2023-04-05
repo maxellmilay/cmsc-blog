@@ -34,7 +34,7 @@ export default function Add() {
   const handleFinishButtonClick = () => {
     postBlog(newBlog);
     Swal.fire({
-      title: 'Blog Uploaded!',
+      title: 'Blog Uploaded!',  
       text: 'You will now be redirected to the home page',
       icon: 'success',
       confirmButtonText: 'Go to Home',
